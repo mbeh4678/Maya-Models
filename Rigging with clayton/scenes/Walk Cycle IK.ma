@@ -1,6 +1,6 @@
 //Maya ASCII 2020 scene
 //Name: Walk Cycle IK.ma
-//Last modified: Wed, Jan 20, 2021 01:01:12 PM
+//Last modified: Thu, Jan 21, 2021 10:40:56 AM
 //Codeset: 1252
 file -rdi 1 -ns "Max_Rig_IK" -rfn "Max_Rig_IKRN" -op "v=0;" -typ "mayaAscii"
 		 "C:/Users/matth/Documents/Offline School/Maya Models/Max_Rig_IK.ma";
@@ -8,6 +8,7 @@ file -r -ns "Max_Rig_IK" -dr 1 -rfn "Max_Rig_IKRN" -op "v=0;" -typ "mayaAscii" "
 requires maya "2020";
 requires -nodeType "RedshiftOptions" -nodeType "RedshiftPostEffects" "redshift4maya" "3.0.31";
 requires "stereoCamera" "10.0";
+requires -nodeType "gameFbxExporter" "gameFbxExporter" "1.0";
 requires "mtoa" "4.0.4.1";
 requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
@@ -16,18 +17,18 @@ fileInfo "product" "Maya 2020";
 fileInfo "version" "2020";
 fileInfo "cutIdentifier" "202009141615-87c40af620";
 fileInfo "osv" "Microsoft Windows 10 Technical Preview  (Build 19042)\n";
-fileInfo "UUID" "86767B1F-49C3-05FB-BDC5-38AFA32D9DF4";
+fileInfo "UUID" "F117D907-4598-3712-F045-058081C6F703";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "DF4453FF-45EA-D258-08DF-67AF84070462";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -283.50529206557712 149.20933649468503 308.02871693540044 ;
-	setAttr ".r" -type "double3" -2.1383527291786004 -761.79999999992208 2.6665468462538637e-16 ;
+	setAttr ".t" -type "double3" -368.00429337512799 131.07195085075566 94.710983367975359 ;
+	setAttr ".r" -type "double3" -9.9383527291844196 -798.19999999990864 -3.8882837257658848e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "D6D45E7B-4A06-EC67-7805-DEA53BD55992";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 952.38589255474835;
+	setAttr ".coi" 792.32975436806919;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -134,20 +135,6 @@ createNode mesh -n "pCubeShape1" -p "pCube1";
 		-0.58149695 -0.24140754 0.33797652 -0.58149695 0.24140754 -0.33797652 -0.58149695 
 		0.24140754 0.33797652 -29.343092 0.24140754 -0.33797652 -29.343092 0.24140754;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "pSphere1";
-	rename -uid "8365D609-4242-4E04-1382-7DA8692646A5";
-	setAttr ".t" -type "double3" -17.653156501453907 158.06603247639174 68.539641565791641 ;
-createNode mesh -n "pSphereShape1" -p "pSphere1";
-	rename -uid "3983C16B-44CB-3F44-DC74-03A8543CD65D";
-	setAttr -k off ".v";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-	setAttr ".ai_translator" -type "string" "polymesh";
 createNode transform -n "back";
 	rename -uid "2A2511F2-4459-E524-FC9F-26AC5E0291FA";
 	setAttr ".v" no;
@@ -166,27 +153,9 @@ createNode camera -n "backShape" -p "back";
 	setAttr ".o" yes;
 	setAttr ".ai_translator" -type "string" "orthographic";
 createNode fosterParent -n "Max_Rig_IKRNfosterParent1";
-	rename -uid "80CB3BE4-482D-5584-CDC2-FAA35F72E68D";
-createNode aimConstraint -n "eyeL_Ctrl_aimConstraint1" -p "Max_Rig_IKRNfosterParent1";
-	rename -uid "0BBBF0ED-47DD-6C0C-F46C-A1AD32C84FD8";
-	addAttr -dcb 0 -ci true -sn "w0" -ln "pSphere1W0" -dv 1 -at "double";
-	setAttr -k on ".nds";
-	setAttr -k off ".v";
-	setAttr -k off ".tx";
-	setAttr -k off ".ty";
-	setAttr -k off ".tz";
-	setAttr -k off ".rx";
-	setAttr -k off ".ry";
-	setAttr -k off ".rz";
-	setAttr -k off ".sx";
-	setAttr -k off ".sy";
-	setAttr -k off ".sz";
-	setAttr ".erp" yes;
-	setAttr ".rsrr" -type "double3" -0.50751848353949092 -86.627347033545291 7.5093192189847091 ;
-	setAttr -k on ".w0";
+	rename -uid "A917751E-4686-B492-69DD-4381F4A093E0";
 createNode aimConstraint -n "eyeR_Ctrl_aimConstraint1" -p "Max_Rig_IKRNfosterParent1";
 	rename -uid "30BCCA4B-4F47-2BFF-ECA9-C1A8BB310C6A";
-	addAttr -dcb 0 -ci true -sn "w0" -ln "pSphere1W0" -dv 1 -at "double";
 	addAttr -dcb 0 -ci true -sn "w1" -ln "eyeL_CtrlW1" -dv 1 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
@@ -200,13 +169,11 @@ createNode aimConstraint -n "eyeR_Ctrl_aimConstraint1" -p "Max_Rig_IKRNfosterPar
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr -s 2 ".tg";
 	setAttr ".rsrr" -type "double3" 2.5205895850598365e-13 -86.47623079739067 2.4655052972599543 ;
-	setAttr -k on ".w0";
 	setAttr -k on ".w1";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "2480BEAD-4F11-F143-59B6-87B2CFD94353";
-	setAttr -s 8 ".lnk";
+	rename -uid "93B0CD1B-4785-43D1-8F0C-CE870A6722FB";
+	setAttr -s 20 ".lnk";
 	setAttr -s 2 ".slnk";
 createNode RedshiftOptions -s -n "redshiftOptions";
 	rename -uid "B6FF5290-4730-7B85-AB96-87B2E5A3F76E";
@@ -219,25 +186,26 @@ createNode RedshiftPostEffects -n "defaultRedshiftPostEffects";
 	setAttr -s 2 ".cb[1]" -type "float2" 1 1;
 	setAttr -s 2 ".cl[1]" -type "float2" 1 1;
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "74AEDE03-4BDA-8E21-D5C1-028750F4BAD7";
+	rename -uid "59297E7E-4094-55DE-8F09-95AB3E84A2C4";
 	setAttr ".bsdt[0].bscd" -type "Int32Array" 1 0 ;
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "23B553DB-4595-3A9E-E724-68940160D0BF";
+	rename -uid "75DBDB56-41A8-97BE-4075-7086AB00C7ED";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "2294B7B8-4BB1-AC43-AA14-6898FAADA49A";
+	rename -uid "7101C267-4B0D-3157-DDF3-AF81574154FF";
 	setAttr ".cdl" 1;
 	setAttr -s 2 ".dli[1]"  1;
 	setAttr -s 2 ".dli";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "1ECA21F9-4951-1656-BBE6-36B4DA73655D";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "DF6CE502-46E5-1867-437D-DFB7899E5964";
+	rename -uid "B31BD3E0-4962-3F6E-F02C-A7A62E3B36DD";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "3A44C89D-4A92-8868-6C97-18940A229813";
 	setAttr ".g" yes;
 createNode reference -n "Max_Rig_IKRN";
 	rename -uid "BBE64E6F-4E72-B151-9C60-EF89753E5D09";
-	setAttr -s 112 ".phl";
+	setAttr ".fn[0]" -type "string" "C:/Users/matth/Documents/Offline School/Maya Models/Rigging with clayton//scenes/Max_Rig_IK.ma";
+	setAttr -s 104 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -342,30 +310,140 @@ createNode reference -n "Max_Rig_IKRN";
 	setAttr ".phl[102]" 0;
 	setAttr ".phl[103]" 0;
 	setAttr ".phl[104]" 0;
-	setAttr ".phl[105]" 0;
-	setAttr ".phl[106]" 0;
-	setAttr ".phl[107]" 0;
-	setAttr ".phl[108]" 0;
-	setAttr ".phl[109]" 0;
-	setAttr ".phl[110]" 0;
-	setAttr ".phl[111]" 0;
-	setAttr ".phl[112]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"Max_Rig_IKRN"
 		"Max_Rig_IKRN" 0
-		"Max_Rig_IKRN" 141
+		"Max_Rig_IKRN" 180
 		0 "|Max_Rig_IKRNfosterParent1|eyeR_Ctrl_aimConstraint1" "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:eyes_Grp|Max_Rig_IK:eyeRLookAt_Grp|Max_Rig_IK:eyeR_Grp|Max_Rig_IK:eyeR_Ctrl" 
 		"-s -r "
-		0 "|Max_Rig_IKRNfosterParent1|eyeL_Ctrl_aimConstraint1" "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:eyes_Grp|Max_Rig_IK:eyeLLookAt_Grp|Max_Rig_IK:eyeL_Grp|Max_Rig_IK:eyeL_Ctrl" 
-		"-s -r "
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:head_Grp|Max_Rig_IK:tongue_Grp|Max_Rig_IK:tongue_Geo|Max_Rig_IK:tongue_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.5 2.04166650772094727"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:head_Grp|Max_Rig_IK:headConstrain_Grp|Max_Rig_IK:headPosition_Grp|Max_Rig_IK:head_Geo|Max_Rig_IK:head_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.49851346015930176 0.47331076860427856"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:head_Grp|Max_Rig_IK:headConstrain_Grp|Max_Rig_IK:headPosition_Grp|Max_Rig_IK:nose_Geo|Max_Rig_IK:nose_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.46743566100485623 0.4999999925494194"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:head_Grp|Max_Rig_IK:headConstrain_Grp|Max_Rig_IK:headPosition_Grp|Max_Rig_IK:browL_Geo|Max_Rig_IK:R_BrowShape" 
+		"uvPivot" " -type \"double2\" 0.50000002246815711 0.33798161742743105"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:head_Grp|Max_Rig_IK:headConstrain_Grp|Max_Rig_IK:headPosition_Grp|Max_Rig_IK:browR_Geo|Max_Rig_IK:browR_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.4999999925494194 0.33798143826425076"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:head_Grp|Max_Rig_IK:headConstrain_Grp|Max_Rig_IK:headPosition_Grp|Max_Rig_IK:eyeScaleL_Grp|Max_Rig_IK:eyeLidTopL_Grp|Max_Rig_IK:eyeLidTopL_Geo|Max_Rig_IK:eyeLidTopL_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.46704647201113403 0.50000002235174179"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:head_Grp|Max_Rig_IK:headConstrain_Grp|Max_Rig_IK:headPosition_Grp|Max_Rig_IK:eyeScaleL_Grp|Max_Rig_IK:eyeLidBottomL_Grp|Max_Rig_IK:eyeLidBottomL_Geo|Max_Rig_IK:eyeLidBottomL_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.4999999925494194 0.46843588224146515"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:head_Grp|Max_Rig_IK:headConstrain_Grp|Max_Rig_IK:headPosition_Grp|Max_Rig_IK:eyeScaleL_Grp|Max_Rig_IK:eyeExtraL_Grp|Max_Rig_IK:eyeL_Grp|Max_Rig_IK:eyeL_Geo|Max_Rig_IK:eyeL_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.5 0.51999999955296516"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:head_Grp|Max_Rig_IK:headConstrain_Grp|Max_Rig_IK:headPosition_Grp|Max_Rig_IK:eyeScaleR_Grp|Max_Rig_IK:eyeLidTopR_Grp|Max_Rig_IK:eyeLidTopR_Geo|Max_Rig_IK:eyeLidTopR_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.46703861840069294 0.50000002246815711"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:head_Grp|Max_Rig_IK:headConstrain_Grp|Max_Rig_IK:headPosition_Grp|Max_Rig_IK:eyeScaleR_Grp|Max_Rig_IK:eyeLidBottomR_Grp|Max_Rig_IK:eyeLidBottomR_Geo|Max_Rig_IK:eyeLidBottomR_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.49999996274709702 0.46840655797859654"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:head_Grp|Max_Rig_IK:headConstrain_Grp|Max_Rig_IK:headPosition_Grp|Max_Rig_IK:eyeScaleR_Grp|Max_Rig_IK:eyeExtraR_Grp|Max_Rig_IK:eyeR_Grp|Max_Rig_IK:eyeR_Geo|Max_Rig_IK:eyeR_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.5 0.51999999955296516"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyTorso_Grp|Max_Rig_IK:dummyTorso_Geo|Max_Rig_IK:dummyTorso_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.50000002246815711 0.40967999777058139"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyNeck_Grp|Max_Rig_IK:dummyNeck_Geo|Max_Rig_IK:dummyNeck_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.50000002235174179 0.47256263479357585"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummySpine1_Grp|Max_Rig_IK:dummySpine1_Geo|Max_Rig_IK:dummySpine1_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.47255027201026678 0.50000002235174179"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyHip_Grp|Max_Rig_IK:dummyHip_Geo|Max_Rig_IK:dummyHip_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.628184974193573 0"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmR_Grp|Max_Rig_IK:dummyPinky1R_Grp|Max_Rig_IK:dummyPinky1R_Geo|Max_Rig_IK:dummyPinky1R_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.50000002246815711 0.46003769669914618"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmR_Grp|Max_Rig_IK:dummyPinky3R_Grp|Max_Rig_IK:dummyPinky3R_Geo|Max_Rig_IK:dummyPinky3R_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.4999999925494194 0.49890863313339651"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmR_Grp|Max_Rig_IK:dummyPinky2R_Grp|Max_Rig_IK:dummyPinky2R_Geo|Max_Rig_IK:dummyPinky2R_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.4999999925494194 0.47177204350009561"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmR_Grp|Max_Rig_IK:dummyOverArmR_Grp|Max_Rig_IK:dummyOverArmRScale_Grp|Max_Rig_IK:dummyOverArmR_Geo|Max_Rig_IK:dummyOverArmR_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.47213922423543409 0.4999999925494194"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmR_Grp|Max_Rig_IK:dummyUnderArmR_Grp|Max_Rig_IK:dummyUnderArmRScale_Grp|Max_Rig_IK:dummyUnderArmR_Geo|Max_Rig_IK:dummyUnderArmR_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.46214337216224521 0.4999999925494194"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmR_Grp|Max_Rig_IK:dummyIndex3R_Grp|Max_Rig_IK:dummyIndex3R_Geo|Max_Rig_IK:dummyIndex3R_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.46236763446358964 0.4999999925494194"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmR_Grp|Max_Rig_IK:dummyIndex2R_Grp|Max_Rig_IK:dummyIndex2R_Geo|Max_Rig_IK:dummyIndex2R_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.45815329719334841 0.50000002246815711"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmR_Grp|Max_Rig_IK:dummyIndex1R_Grp|Max_Rig_IK:dummyIndex1R_Geo|Max_Rig_IK:dummyIndex1R_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.49329524021595716 0.50000002246815711"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmR_Grp|Max_Rig_IK:dummyMiddle3R_Grp|Max_Rig_IK:dummyMiddle3R_Geo|Max_Rig_IK:dummyMiddle3R_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.48448140808613971 0.4999999925494194"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmR_Grp|Max_Rig_IK:dummyMiddle2R_Grp|Max_Rig_IK:dummyMiddle2R_Geo|Max_Rig_IK:dummyMiddle2R_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.50000002246815711 0.49706571153365076"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmR_Grp|Max_Rig_IK:dummyMiddle1R_Grp|Max_Rig_IK:dummyMiddle1R_Geo|Max_Rig_IK:dummyMiddle1R_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.48099647543858737 0.4999999925494194"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmR_Grp|Max_Rig_IK:dummyRing3R_Grp|Max_Rig_IK:dummyRing3R_Geo|Max_Rig_IK:dummyRing3R_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.46241580147761852 0.50000002246815711"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmR_Grp|Max_Rig_IK:dummyRing2R_Grp|Max_Rig_IK:dummyRing2R_Geo|Max_Rig_IK:dummyRing2R_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.49802260322030634 0.50000002235174179"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmR_Grp|Max_Rig_IK:dummyRing1R_Grp|Max_Rig_IK:dummyRing1R_Geo|Max_Rig_IK:dummyRing1R_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.48566596634918824 0.4999999925494194"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmR_Grp|Max_Rig_IK:dummyHandR_Grp|Max_Rig_IK:dummyHandR_Geo|Max_Rig_IK:dummyHandR_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.4999999925494194 0.48757571855094284"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmR_Grp|Max_Rig_IK:dummyThumb1R_Grp|Max_Rig_IK:dummyThumb1R_Geo|Max_Rig_IK:dummyThumb1R_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.48900890618097037 0.50000002235174179"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmR_Grp|Max_Rig_IK:dummyThumb2R_Grp|Max_Rig_IK:dummyThumb2R_Geo|Max_Rig_IK:dummyThumb2R_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.4999999925494194 0.49024876835756004"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmR_Grp|Max_Rig_IK:dummyThumb3R_Grp|Max_Rig_IK:dummyThumb3R_Geo|Max_Rig_IK:dummyThumb3R_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.45546851149993017 0.50000002235174179"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmL_Grp|Max_Rig_IK:dummyOverArmL_Grp|Max_Rig_IK:dummyOverArmLScale_Grp|Max_Rig_IK:dummyOverArmL_Geo|Max_Rig_IK:dummyOverArmL_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.4721246815752238 0.50000002235174179"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmL_Grp|Max_Rig_IK:dummyUnderArmL_Grp|Max_Rig_IK:dummyUnderArmLScale_Grp|Max_Rig_IK:dummyUnderArmL_Geo|Max_Rig_IK:dummyUnderArmL_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.46214334230171517 0.4999999925494194"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmL_Grp|Max_Rig_IK:dummyIndex3L_Grp|Max_Rig_IK:dummyIndex3L_Geo|Max_Rig_IK:dummyIndex3L_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.46236643986776471 0.50000002235174179"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmL_Grp|Max_Rig_IK:dummyIndex2L_Grp|Max_Rig_IK:dummyIndex2L_Geo|Max_Rig_IK:dummyIndex2L_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.4999999925494194 0.48485727870138362"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmL_Grp|Max_Rig_IK:dummyIndex1L_Grp|Max_Rig_IK:dummyIndex1L_Geo|Max_Rig_IK:dummyIndex1L_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.49329282145481557 0.4999999925494194"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmL_Grp|Max_Rig_IK:dummyMiddle3L_Grp|Max_Rig_IK:dummyMiddle3L_Geo|Max_Rig_IK:dummyMiddle3L_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.48447958659380674 0.50000002235174179"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmL_Grp|Max_Rig_IK:dummyMiddle2L_Grp|Max_Rig_IK:dummyMiddle2L_Geo|Max_Rig_IK:dummyMiddle2L_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.4999999925494194 0.49706529348623008"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmL_Grp|Max_Rig_IK:dummyMiddle1L_Grp|Max_Rig_IK:dummyMiddle1L_Geo|Max_Rig_IK:dummyMiddle1L_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.48099653515964746 0.4999999925494194"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmL_Grp|Max_Rig_IK:dummyRing3L_Grp|Max_Rig_IK:dummyRing3L_Geo|Max_Rig_IK:dummyRing3L_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.46241439797449857 0.4999999925494194"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmL_Grp|Max_Rig_IK:dummyRing2L_Grp|Max_Rig_IK:dummyRing2L_Geo|Max_Rig_IK:dummyRing2L_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.49802102067042142 0.4999999925494194"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmL_Grp|Max_Rig_IK:dummyRing1L_Grp|Max_Rig_IK:dummyRing1L_Geo|Max_Rig_IK:dummyRing1L_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.48566940042655915 0.50000002235174179"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmL_Grp|Max_Rig_IK:dummyPinky3L_Grp|Max_Rig_IK:dummyPinky3L_Geo|Max_Rig_IK:dummyPinky3L_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.480496110918466 0.4999999925494194"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmL_Grp|Max_Rig_IK:dummyPinky2L_Grp|Max_Rig_IK:dummyPinky2L_Geo|Max_Rig_IK:dummyPinky2L_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.50000002235174179 0.45811405871063471"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmL_Grp|Max_Rig_IK:dummyPinky1L_Grp|Max_Rig_IK:dummyPinky1L_Geo|Max_Rig_IK:dummyPinky1L_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.50000002246815711 0.46003480011131614"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmL_Grp|Max_Rig_IK:dummyHandL_Grp|Max_Rig_IK:dummyHandL_Geo|Max_Rig_IK:dummyHandL_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.50000002246815711 0.48757631581975147"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmL_Grp|Max_Rig_IK:dummyThumb3L_Grp|Max_Rig_IK:dummyThumb3L_Geo|Max_Rig_IK:dummyThumb3L_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.45727971976157278 0.4999999925494194"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmL_Grp|Max_Rig_IK:dummyThumb2L_Grp|Max_Rig_IK:dummyThumb2L_Geo|Max_Rig_IK:dummyThumb2L_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.49999996274709702 0.48670363432029262"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyArmL_Grp|Max_Rig_IK:dummyThumb1L_Grp|Max_Rig_IK:dummyThumb1L_Geo|Max_Rig_IK:dummyThumb1L_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.48900869715726003 0.50000002246815711"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummySpine2_Grp|Max_Rig_IK:dummySpine2Scale_Grp|Max_Rig_IK:dummySpine2_Geo|Max_Rig_IK:dummySpine2_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.4999999925494194 0.43352916062576696"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyLegR_Grp|Max_Rig_IK:dummyLowerLegR_Grp|Max_Rig_IK:dummyLowerLegR_Geo|Max_Rig_IK:dummyLowerLegR_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.44552381284302101 0.4999999925494194"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyLegR_Grp|Max_Rig_IK:dummyUpperLegR_Grp|Max_Rig_IK:dummyUpperLegR_Geo|Max_Rig_IK:dummyUpperLegR_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.47130103316158056 0.49999999266583472"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyLegR_Grp|Max_Rig_IK:dummyAnkleR_Grp|Max_Rig_IK:dummyAnkleR_Geo|Max_Rig_IK:dummyAnkleR_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.50000002235174179 0.48387676628772169"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyLegR_Grp|Max_Rig_IK:dummyToeR_Grp|Max_Rig_IK:dummyToeR_Geo|Max_Rig_IK:dummyToeR_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.48188614827813581 0.4999999925494194"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyLegL_Grp|Max_Rig_IK:dummyUpperLegL_Grp|Max_Rig_IK:dummyUpperLegL_Geo|Max_Rig_IK:dummyUpperLegL_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.47130121238296852 0.49999999266583472"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyLegL_Grp|Max_Rig_IK:dummyLowerLegL_Grp|Max_Rig_IK:dummyLowerLegL_Geo|Max_Rig_IK:dummyLowerLegL_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.44552366342395544 0.4999999925494194"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyLegL_Grp|Max_Rig_IK:dummyAnkleL_Grp|Max_Rig_IK:dummyAnkleL_Geo|Max_Rig_IK:dummyAnkleL_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.4999999925494194 0.48387637810083106"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:geo_Grp|Max_Rig_IK:bodyDummy_Grp|Max_Rig_IK:dummyRest_Grp|Max_Rig_IK:dummyLegL_Grp|Max_Rig_IK:dummyToeL_Grp|Max_Rig_IK:dummyToeL_Geo|Max_Rig_IK:dummyToeL_GeoShape" 
+		"uvPivot" " -type \"double2\" 0.48188731289701536 0.4999999925494194"
 		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:FKCtrl_Grp|Max_Rig_IK:fkTorso_Grp|Max_Rig_IK:fkTorso_Ctrl" 
-		"rotate" " -type \"double3\" 0 3.19402533616986917 0"
+		"rotate" " -type \"double3\" 0 3.19402533616986961 0"
 		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:FKCtrl_Grp|Max_Rig_IK:fkSpine_Grp|Max_Rig_IK:fkSpine_Ctrl" 
 		"rotate" " -type \"double3\" 0 1.94544825279151956 0"
 		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:hip_Grp|Max_Rig_IK:hip_Ctrl" 
 		"rotate" " -type \"double3\" 3.15106716600657366 0 0"
 		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:fingerL_Grp|Max_Rig_IK:thumbFingerL_Grp|Max_Rig_IK:thumbFingerL_Ctrl" 
-		"rotateZ" " 24.73811524897698888"
+		"rotateZ" " 24.73811524897699243"
 		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:fingerL_Grp|Max_Rig_IK:pointFingerL_Ctrl" 
 		"rotateZ" " 6.69879270663892257"
 		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:fingerL_Grp|Max_Rig_IK:midFingerL_Ctrl" 
@@ -382,34 +460,11 @@ createNode reference -n "Max_Rig_IKRN";
 		"rotateZ" " 5.82185511243548071"
 		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:fingerR_Grp|Max_Rig_IK:pinkyFingerR_Ctrl" 
 		"rotateZ" " 5.82185511243548071"
-		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:armIKL_Grp|Max_Rig_IK:armIKOrientL_Grp|Max_Rig_IK:armIKL_Ctrl" 
-		"Twist" " -k 1"
-		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:armIKL_Grp|Max_Rig_IK:armIKOrientL_Grp|Max_Rig_IK:armIKL_Ctrl" 
-		"autoStretch" " -k 1"
-		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:armIKL_Grp|Max_Rig_IK:armIKOrientL_Grp|Max_Rig_IK:armIKL_Ctrl" 
-		"jointScale" " -k 1"
-		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:footIKR_Grp|Max_Rig_IK:footIKR_Ctrl" 
-		"BallRoll" " -k 1"
-		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:footIKR_Grp|Max_Rig_IK:footIKR_Ctrl" 
-		"ToeHeelRoll" " -k 1"
-		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:footIKR_Grp|Max_Rig_IK:footIKR_Ctrl" 
-		"ToeBend" " -k 1"
-		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:footIKR_Grp|Max_Rig_IK:footIKR_Ctrl" 
-		"BallTwist" " -k 1"
-		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:footIKR_Grp|Max_Rig_IK:footIKR_Ctrl" 
-		"ToeTwist" " -k 1"
-		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:footIKR_Grp|Max_Rig_IK:footIKR_Ctrl" 
-		"autoStretch" " -k 1"
-		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:footIKL_Grp|Max_Rig_IK:footIKL_Ctrl" 
-		"BallRoll" " -k 1"
-		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:footIKL_Grp|Max_Rig_IK:footIKL_Ctrl" 
-		"ToeHeelRoll" " -k 1"
-		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:footIKL_Grp|Max_Rig_IK:footIKL_Ctrl" 
-		"ToeBend" " -k 1"
-		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:footIKL_Grp|Max_Rig_IK:footIKL_Ctrl" 
-		"autoStretch" " -k 1"
 		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:eyes_Grp|Max_Rig_IK:eyeRLookAt_Grp|Max_Rig_IK:eyeR_Grp|Max_Rig_IK:eyeR_Ctrl" 
 		"FreeOrient" " -k 1 0"
+		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:eyes_Grp|Max_Rig_IK:eyeLLookAt_Grp|Max_Rig_IK:eyeL_Grp|Max_Rig_IK:eyeL_Ctrl" 
+		"rotate" " -type \"double3\" -5.6555109987422707 -22.45386994872066921 3.84044100410336764"
+		
 		2 "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:eyes_Grp|Max_Rig_IK:eyeLLookAt_Grp|Max_Rig_IK:eyeL_Grp|Max_Rig_IK:eyeL_Ctrl" 
 		"FreeOrient" " -k 1 0"
 		5 4 "Max_Rig_IKRN" "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:fingerR_Grp|Max_Rig_IK:thumbFingerR_Grp|Max_Rig_IK:thumbFingerR_Ctrl.rotateZ" 
@@ -602,40 +657,24 @@ createNode reference -n "Max_Rig_IKRN";
 		"Max_Rig_IKRN.placeHolderList[94]" ""
 		5 3 "Max_Rig_IKRN" "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:eyes_Grp|Max_Rig_IK:eyeLLookAt_Grp|Max_Rig_IK:eyeL_Grp|Max_Rig_IK:eyeL_Ctrl.translate" 
 		"Max_Rig_IKRN.placeHolderList[95]" ""
-		5 3 "Max_Rig_IKRN" "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:eyes_Grp|Max_Rig_IK:eyeLLookAt_Grp|Max_Rig_IK:eyeL_Grp|Max_Rig_IK:eyeL_Ctrl.translate" 
-		"Max_Rig_IKRN.placeHolderList[96]" ""
-		5 4 "Max_Rig_IKRN" "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:eyes_Grp|Max_Rig_IK:eyeLLookAt_Grp|Max_Rig_IK:eyeL_Grp|Max_Rig_IK:eyeL_Ctrl.rotateX" 
-		"Max_Rig_IKRN.placeHolderList[97]" ""
-		5 4 "Max_Rig_IKRN" "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:eyes_Grp|Max_Rig_IK:eyeLLookAt_Grp|Max_Rig_IK:eyeL_Grp|Max_Rig_IK:eyeL_Ctrl.rotateY" 
-		"Max_Rig_IKRN.placeHolderList[98]" ""
-		5 4 "Max_Rig_IKRN" "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:eyes_Grp|Max_Rig_IK:eyeLLookAt_Grp|Max_Rig_IK:eyeL_Grp|Max_Rig_IK:eyeL_Ctrl.rotateZ" 
-		"Max_Rig_IKRN.placeHolderList[99]" ""
-		5 3 "Max_Rig_IKRN" "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:eyes_Grp|Max_Rig_IK:eyeLLookAt_Grp|Max_Rig_IK:eyeL_Grp|Max_Rig_IK:eyeL_Ctrl.rotateOrder" 
-		"Max_Rig_IKRN.placeHolderList[100]" ""
 		5 3 "Max_Rig_IKRN" "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:eyes_Grp|Max_Rig_IK:eyeLLookAt_Grp|Max_Rig_IK:eyeL_Grp|Max_Rig_IK:eyeL_Ctrl.parentMatrix" 
-		"Max_Rig_IKRN.placeHolderList[101]" ""
-		5 3 "Max_Rig_IKRN" "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:eyes_Grp|Max_Rig_IK:eyeLLookAt_Grp|Max_Rig_IK:eyeL_Grp|Max_Rig_IK:eyeL_Ctrl.parentInverseMatrix" 
-		"Max_Rig_IKRN.placeHolderList[102]" ""
+		"Max_Rig_IKRN.placeHolderList[96]" ""
 		5 3 "Max_Rig_IKRN" "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:eyes_Grp|Max_Rig_IK:eyeLLookAt_Grp|Max_Rig_IK:eyeL_Grp|Max_Rig_IK:eyeL_Ctrl.rotatePivot" 
-		"Max_Rig_IKRN.placeHolderList[103]" ""
-		5 3 "Max_Rig_IKRN" "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:eyes_Grp|Max_Rig_IK:eyeLLookAt_Grp|Max_Rig_IK:eyeL_Grp|Max_Rig_IK:eyeL_Ctrl.rotatePivot" 
-		"Max_Rig_IKRN.placeHolderList[104]" ""
+		"Max_Rig_IKRN.placeHolderList[97]" ""
 		5 3 "Max_Rig_IKRN" "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:eyes_Grp|Max_Rig_IK:eyeLLookAt_Grp|Max_Rig_IK:eyeL_Grp|Max_Rig_IK:eyeL_Ctrl.rotatePivotTranslate" 
-		"Max_Rig_IKRN.placeHolderList[105]" ""
-		5 3 "Max_Rig_IKRN" "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:eyes_Grp|Max_Rig_IK:eyeLLookAt_Grp|Max_Rig_IK:eyeL_Grp|Max_Rig_IK:eyeL_Ctrl.rotatePivotTranslate" 
-		"Max_Rig_IKRN.placeHolderList[106]" ""
+		"Max_Rig_IKRN.placeHolderList[98]" ""
 		5 4 "Max_Rig_IKRN" "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:root_Ctrl.translateY" 
-		"Max_Rig_IKRN.placeHolderList[107]" ""
+		"Max_Rig_IKRN.placeHolderList[99]" ""
 		5 4 "Max_Rig_IKRN" "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:root_Ctrl.translateX" 
-		"Max_Rig_IKRN.placeHolderList[108]" ""
+		"Max_Rig_IKRN.placeHolderList[100]" ""
 		5 4 "Max_Rig_IKRN" "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:root_Ctrl.translateZ" 
-		"Max_Rig_IKRN.placeHolderList[109]" ""
+		"Max_Rig_IKRN.placeHolderList[101]" ""
 		5 4 "Max_Rig_IKRN" "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:root_Ctrl.rotateX" 
-		"Max_Rig_IKRN.placeHolderList[110]" ""
+		"Max_Rig_IKRN.placeHolderList[102]" ""
 		5 4 "Max_Rig_IKRN" "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:root_Ctrl.rotateY" 
-		"Max_Rig_IKRN.placeHolderList[111]" ""
+		"Max_Rig_IKRN.placeHolderList[103]" ""
 		5 4 "Max_Rig_IKRN" "|Max_Rig_IK:all_Grp|Max_Rig_IK:controls_Grp|Max_Rig_IK:root_Ctrl.rotateZ" 
-		"Max_Rig_IKRN.placeHolderList[112]" "";
+		"Max_Rig_IKRN.placeHolderList[104]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode script -n "uiConfigurationScriptNode";
@@ -690,7 +729,7 @@ createNode script -n "uiConfigurationScriptNode";
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
 	rename -uid "7DF159F4-4E0A-CA41-480F-988685C7F19E";
-	setAttr ".b" -type "string" "playbackOptions -min 1 -max 25 -ast 1 -aet 25 ";
+	setAttr ".b" -type "string" "playbackOptions -min 1 -max 24 -ast 1 -aet 25 ";
 	setAttr ".st" 6;
 createNode polyCube -n "polyCube1";
 	rename -uid "E3B034CC-4660-A415-6EAE-15BDE7962FF6";
@@ -726,9 +765,9 @@ createNode animCurveTL -n "footIKR_Ctrl_translateZ";
 	rename -uid "2358985D-4D04-08A5-608E-2C9332BEA156";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  1 54.740201521383668 4 21.003447057632215
-		 7 -12.733307406119245 10 -44.572471525432732 13 -74.082215396139773 16 -86.556803
-		 19 -56.73816 22 -16.374302784444399 25 54.740201521383668;
+	setAttr -s 9 ".ktv[0:8]"  1 55.877502 4 21.003447057632215 7 -12.733307406119245
+		 10 -44.572471525432732 13 -74.082215396139773 16 -86.556803 19 -56.73816 22 -7.453135
+		 25 55.877502;
 	setAttr -s 9 ".kit[8]"  1;
 	setAttr -s 9 ".kot[8]"  1;
 	setAttr -s 9 ".kix[8]"  1;
@@ -1126,9 +1165,9 @@ createNode animCurveTL -n "root_Ctrl_translateY";
 	setAttr -s 9 ".kiy[0:8]"  -0.99967617972466771 0 7.9979176915570456 
 		-0.41770803123684302 -7.5857009773835777 0 5.0093055107498969 0 -0.99967617972466771;
 	setAttr -s 9 ".kox[0:8]"  0.125 0.12500000000000003 0.125 0.38778481190092856 
-		0.125 0.125 0.125 0.33310126722790312 0.125;
+		0.125 0.125 0.125 0.34525316604413103 0.125;
 	setAttr -s 9 ".koy[0:8]"  -4.9106340298974649 0 7.9979176915570438 
-		-9.873141343166294 -7.5857009773835813 0 5.0093055107498969 0 -4.9106340298974649;
+		-9.873141343166294 -7.5857009773835813 0 5.0093055107498969 -19.638207279145718 -4.9106340298974649;
 createNode animCurveTL -n "root_Ctrl_translateZ";
 	rename -uid "E8AD9724-4CDB-76E8-9FA5-CFA06A6C807A";
 	setAttr ".tan" 18;
@@ -1201,7 +1240,7 @@ createNode animCurveTA -n "armIKR_Ctrl_rotateX";
 	rename -uid "68027136-401F-477D-612C-70B8B267DE04";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 12 ".ktv[0:11]"  1 -0.054961683371789152 4 -0.063806638932441914
+	setAttr -s 12 ".ktv[0:11]"  1 -0.054961683371789152 4 -0.063806638932441928
 		 7 -0.048248230649165842 10 -0.041251317087871595 12 -0.040391759354112065 13 -0.037023120604203465
 		 16 -0.026581470289134521 17 -0.005760493802960274 19 -0.037087988129264442 22 -0.039450615483879001
 		 24 -0.051126128383087936 25 -0.054961683371789152;
@@ -1229,10 +1268,10 @@ createNode animCurveTA -n "armIKR_Ctrl_rotateZ";
 	rename -uid "E2E198C8-4AC7-A00F-88D4-4E94D97ECE3F";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 12 ".ktv[0:11]"  1 89.993929291363344 4 89.986199706470558
-		 7 89.998544474455571 10 89.999917407833195 12 89.999741791546882 13 89.998334678598823
+	setAttr -s 12 ".ktv[0:11]"  1 89.993929291363358 4 89.986199706470572
+		 7 89.998544474455571 10 89.999917407833195 12 89.999741791546896 13 89.998334678598823
 		 16 89.990449557315145 17 89.970858266715652 19 89.998369878312189 22 89.999437308237106
-		 24 89.995357295738017 25 89.993929291363344;
+		 24 89.995357295738017 25 89.993929291363358;
 	setAttr -s 12 ".kit[11]"  1;
 	setAttr -s 12 ".kot[11]"  1;
 	setAttr -s 12 ".kix[11]"  1;
@@ -1354,68 +1393,138 @@ createNode animCurveTA -n "thumbFingerR_Ctrl_rotateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 2 ".ktv[0:1]"  1 17.260247111190473 25 17.260247111190473;
+	setAttr -s 2 ".kit[1]"  1;
+	setAttr -s 2 ".kot[1]"  1;
+	setAttr -s 2 ".kix[1]"  1;
+	setAttr -s 2 ".kiy[1]"  0;
+	setAttr -s 2 ".kox[1]"  1;
+	setAttr -s 2 ".koy[1]"  0;
 createNode animCurveTU -n "thumbFingerR_Ctrl_FingerTip";
 	rename -uid "D8ED74D9-4E90-44F9-2D70-498EB4926D8C";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 2 ".ktv[0:1]"  1 0 25 0;
+	setAttr -s 2 ".kit[1]"  1;
+	setAttr -s 2 ".kot[1]"  1;
+	setAttr -s 2 ".kix[1]"  1;
+	setAttr -s 2 ".kiy[1]"  0;
+	setAttr -s 2 ".kox[1]"  1;
+	setAttr -s 2 ".koy[1]"  0;
 createNode animCurveTU -n "thumbFingerR_Ctrl_FingerMiddle";
 	rename -uid "7D7C1BB1-449D-95BC-700E-F3B4EF85F073";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 2 ".ktv[0:1]"  1 0 25 0;
+	setAttr -s 2 ".kit[1]"  1;
+	setAttr -s 2 ".kot[1]"  1;
+	setAttr -s 2 ".kix[1]"  1;
+	setAttr -s 2 ".kiy[1]"  0;
+	setAttr -s 2 ".kox[1]"  1;
+	setAttr -s 2 ".koy[1]"  0;
 createNode animCurveTU -n "thumbFingerR_Ctrl_FingerBase";
 	rename -uid "360BEA17-4269-6B43-3A7F-0D960E947C84";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 2 ".ktv[0:1]"  1 0 25 0;
+	setAttr -s 2 ".kit[1]"  1;
+	setAttr -s 2 ".kot[1]"  1;
+	setAttr -s 2 ".kix[1]"  1;
+	setAttr -s 2 ".kiy[1]"  0;
+	setAttr -s 2 ".kox[1]"  1;
+	setAttr -s 2 ".koy[1]"  0;
 createNode animCurveTU -n "thumbFingerR_Ctrl_Spread";
 	rename -uid "3637DA5C-4289-76A0-488A-9C91182C7E46";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 2 ".ktv[0:1]"  1 0 25 0;
+	setAttr -s 2 ".kit[1]"  1;
+	setAttr -s 2 ".kot[1]"  1;
+	setAttr -s 2 ".kix[1]"  1;
+	setAttr -s 2 ".kiy[1]"  0;
+	setAttr -s 2 ".kox[1]"  1;
+	setAttr -s 2 ".koy[1]"  0;
 createNode animCurveTL -n "armPoleVectorIKR_Ctrl_translateX";
 	rename -uid "C01E1845-4597-F361-1FEF-B6A222BA333E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 2 ".ktv[0:1]"  1 18.780002796238264 25 18.780002796238264;
+	setAttr -s 2 ".kit[1]"  1;
+	setAttr -s 2 ".kot[1]"  1;
+	setAttr -s 2 ".kix[1]"  1;
+	setAttr -s 2 ".kiy[1]"  0;
+	setAttr -s 2 ".kox[1]"  1;
+	setAttr -s 2 ".koy[1]"  0;
 createNode animCurveTL -n "armPoleVectorIKR_Ctrl_translateY";
 	rename -uid "4F30FBC6-49B3-1335-6C14-468DEFB50A9C";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 2 ".ktv[0:1]"  1 0 25 0;
+	setAttr -s 2 ".kit[1]"  1;
+	setAttr -s 2 ".kot[1]"  1;
+	setAttr -s 2 ".kix[1]"  1;
+	setAttr -s 2 ".kiy[1]"  0;
+	setAttr -s 2 ".kox[1]"  1;
+	setAttr -s 2 ".koy[1]"  0;
 createNode animCurveTL -n "armPoleVectorIKR_Ctrl_translateZ";
 	rename -uid "FF447D25-4218-314D-736C-CA9423DC39BD";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 2 ".ktv[0:1]"  1 -15.358613140264509 25 -15.358613140264509;
+	setAttr -s 2 ".kit[1]"  1;
+	setAttr -s 2 ".kot[1]"  1;
+	setAttr -s 2 ".kix[1]"  1;
+	setAttr -s 2 ".kiy[1]"  0;
+	setAttr -s 2 ".kox[1]"  1;
+	setAttr -s 2 ".koy[1]"  0;
 createNode animCurveTU -n "armPoleVectorIKR_Ctrl_Parent";
 	rename -uid "A1511534-490D-D544-8AD7-6290325FF4FC";
-	setAttr ".tan" 9;
+	setAttr ".tan" 5;
 	setAttr ".wgt" no;
 	setAttr -s 2 ".ktv[0:1]"  1 2 25 2;
-	setAttr -s 2 ".kot[0:1]"  5 5;
+	setAttr -s 2 ".kit[0:1]"  9 1;
+	setAttr -s 2 ".kix[1]"  1;
+	setAttr -s 2 ".kiy[1]"  0;
 createNode animCurveTL -n "armPoleVectorIKL_Ctrl_translateX";
 	rename -uid "610054A6-4E1F-7ABF-A53A-479B6874B908";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 2 ".ktv[0:1]"  1 -24.11570826027323 25 -24.11570826027323;
+	setAttr -s 2 ".kit[1]"  1;
+	setAttr -s 2 ".kot[1]"  1;
+	setAttr -s 2 ".kix[1]"  1;
+	setAttr -s 2 ".kiy[1]"  0;
+	setAttr -s 2 ".kox[1]"  1;
+	setAttr -s 2 ".koy[1]"  0;
 createNode animCurveTL -n "armPoleVectorIKL_Ctrl_translateY";
 	rename -uid "5859E4FA-407D-AFF5-3280-EA946D03E4A7";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 2 ".ktv[0:1]"  1 2.8421709430404007e-14 25 2.8421709430404007e-14;
+	setAttr -s 2 ".kit[1]"  1;
+	setAttr -s 2 ".kot[1]"  1;
+	setAttr -s 2 ".kix[1]"  1;
+	setAttr -s 2 ".kiy[1]"  0;
+	setAttr -s 2 ".kox[1]"  1;
+	setAttr -s 2 ".koy[1]"  0;
 createNode animCurveTL -n "armPoleVectorIKL_Ctrl_translateZ";
 	rename -uid "EFDA2A94-408C-58B6-6771-42BDBB525E73";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 2 ".ktv[0:1]"  1 -30.984033602162384 25 -30.984033602162384;
+	setAttr -s 2 ".kit[1]"  1;
+	setAttr -s 2 ".kot[1]"  1;
+	setAttr -s 2 ".kix[1]"  1;
+	setAttr -s 2 ".kiy[1]"  0;
+	setAttr -s 2 ".kox[1]"  1;
+	setAttr -s 2 ".koy[1]"  0;
 createNode animCurveTU -n "armPoleVectorIKL_Ctrl_Parent";
 	rename -uid "DA36F806-4FB7-A18A-B92A-95A8A1661AFC";
-	setAttr ".tan" 9;
+	setAttr ".tan" 5;
 	setAttr ".wgt" no;
 	setAttr -s 2 ".ktv[0:1]"  1 2 25 2;
-	setAttr -s 2 ".kot[0:1]"  5 5;
+	setAttr -s 2 ".kit[0:1]"  9 1;
+	setAttr -s 2 ".kix[1]"  1;
+	setAttr -s 2 ".kiy[1]"  0;
 createNode animCurveTL -n "armIKL_Ctrl_translateX";
 	rename -uid "6C4EB6C0-4315-5417-8139-1F9566A626DE";
 	setAttr ".tan" 18;
@@ -1475,10 +1584,10 @@ createNode animCurveTA -n "armIKL_Ctrl_rotateY";
 	rename -uid "C9965EF4-4338-1FEB-21DB-869E0AA9F099";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 12 ".ktv[0:11]"  1 -0.11054711343030643 4 -45.191410253550266
+	setAttr -s 12 ".ktv[0:11]"  1 -0.11054711343030645 4 -45.191410253550266
 		 5 -73.318499613630991 7 -35.136235808443331 10 -13.943865635383064 12 11.711304061362114
 		 13 28.659567133553569 16 44.859730044724309 17 54.032085011621021 19 36.028477272439837
-		 22 0.97023340747908005 25 -0.11054711343030643;
+		 22 0.97023340747908005 25 -0.11054711343030645;
 	setAttr -s 12 ".kit[11]"  1;
 	setAttr -s 12 ".kot[11]"  1;
 	setAttr -s 12 ".kix[11]"  1;
@@ -1608,15 +1717,54 @@ createNode animCurveTU -n "head_Ctrl_EyeControl";
 	setAttr ".wgt" no;
 	setAttr -s 5 ".ktv[0:4]"  0 1 5 1 10 1 15 1 21 1;
 	setAttr -s 5 ".kot[0:4]"  5 5 5 5 5;
-createNode polySphere -n "polySphere1";
-	rename -uid "0B1048FF-48CC-9ED9-DA3F-7DB6BBDB1CEF";
+createNode gameFbxExporter -n "gameExporterPreset1";
+	rename -uid "97F9F11A-43F5-3FEE-02F8-AFA6ABE84680";
+	setAttr ".pn" -type "string" "Model Default";
+	setAttr ".ils" yes;
+	setAttr ".ssn" -type "string" "";
+	setAttr ".ean" yes;
+	setAttr ".ebm" yes;
+	setAttr ".inc" yes;
+	setAttr ".ft" 1;
+	setAttr ".fv" -type "string" "FBX202000";
+	setAttr ".exp" -type "string" "C:/Users/matth/Desktop";
+	setAttr ".exf" -type "string" "WalkCycleIKExport";
+createNode gameFbxExporter -n "gameExporterPreset2";
+	rename -uid "F8C36B80-4C3A-58B3-F237-E4A2D4EC1E54";
+	setAttr ".pn" -type "string" "Anim Default";
+	setAttr ".ils" yes;
+	setAttr ".ilu" yes;
+	setAttr ".eti" 2;
+	setAttr ".esi" 3;
+	setAttr ".ssn" -type "string" "Max_Rig_IK:ExportNodes";
+	setAttr ".ac[0].acn" -type "string" "Walk";
+	setAttr ".ac[0].acs" 1;
+	setAttr ".ac[0].ace" 24;
+	setAttr ".spt" 2;
+	setAttr ".ic" no;
+	setAttr ".ebm" yes;
+	setAttr ".fv" -type "string" "FBX201800";
+	setAttr ".exp" -type "string" "C:/Users/matth/Desktop";
+	setAttr ".exf" -type "string" "WalkCycleIK";
+createNode gameFbxExporter -n "gameExporterPreset3";
+	rename -uid "0BC7DDBB-4FFB-A1BE-23D4-A484115FE223";
+	setAttr ".pn" -type "string" "TE Anim Default";
+	setAttr ".ils" yes;
+	setAttr ".eti" 3;
+	setAttr ".ssn" -type "string" "";
+	setAttr ".ebm" yes;
+	setAttr ".fv" -type "string" "FBX201800";
+createNode reference -n "sharedReferenceNode";
+	rename -uid "20323517-4A46-959E-54E8-13A8EA32B0F3";
+	setAttr ".ed" -type "dataReferenceEdits" 
+		"sharedReferenceNode";
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -av -cb on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -k on ".o" 20;
-	setAttr -av ".unw" 20;
+	setAttr -k on ".o" 14;
+	setAttr -av ".unw" 14;
 	setAttr -av -k on ".etw";
 	setAttr -av -k on ".tps";
 	setAttr -av -k on ".tms";
@@ -1690,7 +1838,6 @@ select -ne :initialShadingGroup;
 	setAttr -k on ".vwm";
 	setAttr -k on ".tpv";
 	setAttr -k on ".uit";
-	setAttr -s 2 ".dsm";
 	setAttr -k on ".mwc";
 	setAttr -cb on ".an";
 	setAttr -cb on ".il";
@@ -1884,7 +2031,7 @@ select -ne :hardwareRenderGlobals;
 	setAttr -k on ".shml";
 	setAttr -k on ".hwel";
 select -ne :ikSystem;
-	setAttr -s 4 ".sol";
+	setAttr -s 2 ".sol";
 connectAttr "thumbFingerR_Ctrl_rotateZ.o" "Max_Rig_IKRN.phl[1]";
 connectAttr "thumbFingerR_Ctrl_FingerMiddle.o" "Max_Rig_IKRN.phl[2]";
 connectAttr "thumbFingerR_Ctrl_FingerBase.o" "Max_Rig_IKRN.phl[3]";
@@ -1979,24 +2126,16 @@ connectAttr "Max_Rig_IKRN.phl[91]" "eyeR_Ctrl_aimConstraint1.cro";
 connectAttr "Max_Rig_IKRN.phl[92]" "eyeR_Ctrl_aimConstraint1.cpim";
 connectAttr "Max_Rig_IKRN.phl[93]" "eyeR_Ctrl_aimConstraint1.crp";
 connectAttr "Max_Rig_IKRN.phl[94]" "eyeR_Ctrl_aimConstraint1.crt";
-connectAttr "Max_Rig_IKRN.phl[95]" "eyeL_Ctrl_aimConstraint1.ct";
-connectAttr "Max_Rig_IKRN.phl[96]" "eyeR_Ctrl_aimConstraint1.tg[1].tt";
-connectAttr "eyeL_Ctrl_aimConstraint1.crx" "Max_Rig_IKRN.phl[97]";
-connectAttr "eyeL_Ctrl_aimConstraint1.cry" "Max_Rig_IKRN.phl[98]";
-connectAttr "eyeL_Ctrl_aimConstraint1.crz" "Max_Rig_IKRN.phl[99]";
-connectAttr "Max_Rig_IKRN.phl[100]" "eyeL_Ctrl_aimConstraint1.cro";
-connectAttr "Max_Rig_IKRN.phl[101]" "eyeR_Ctrl_aimConstraint1.tg[1].tpm";
-connectAttr "Max_Rig_IKRN.phl[102]" "eyeL_Ctrl_aimConstraint1.cpim";
-connectAttr "Max_Rig_IKRN.phl[103]" "eyeL_Ctrl_aimConstraint1.crp";
-connectAttr "Max_Rig_IKRN.phl[104]" "eyeR_Ctrl_aimConstraint1.tg[1].trp";
-connectAttr "Max_Rig_IKRN.phl[105]" "eyeL_Ctrl_aimConstraint1.crt";
-connectAttr "Max_Rig_IKRN.phl[106]" "eyeR_Ctrl_aimConstraint1.tg[1].trt";
-connectAttr "root_Ctrl_translateY.o" "Max_Rig_IKRN.phl[107]";
-connectAttr "root_Ctrl_translateX.o" "Max_Rig_IKRN.phl[108]";
-connectAttr "root_Ctrl_translateZ.o" "Max_Rig_IKRN.phl[109]";
-connectAttr "root_Ctrl_rotateX.o" "Max_Rig_IKRN.phl[110]";
-connectAttr "root_Ctrl_rotateY.o" "Max_Rig_IKRN.phl[111]";
-connectAttr "root_Ctrl_rotateZ.o" "Max_Rig_IKRN.phl[112]";
+connectAttr "Max_Rig_IKRN.phl[95]" "eyeR_Ctrl_aimConstraint1.tg[1].tt";
+connectAttr "Max_Rig_IKRN.phl[96]" "eyeR_Ctrl_aimConstraint1.tg[1].tpm";
+connectAttr "Max_Rig_IKRN.phl[97]" "eyeR_Ctrl_aimConstraint1.tg[1].trp";
+connectAttr "Max_Rig_IKRN.phl[98]" "eyeR_Ctrl_aimConstraint1.tg[1].trt";
+connectAttr "root_Ctrl_translateY.o" "Max_Rig_IKRN.phl[99]";
+connectAttr "root_Ctrl_translateX.o" "Max_Rig_IKRN.phl[100]";
+connectAttr "root_Ctrl_translateZ.o" "Max_Rig_IKRN.phl[101]";
+connectAttr "root_Ctrl_rotateX.o" "Max_Rig_IKRN.phl[102]";
+connectAttr "root_Ctrl_rotateY.o" "Max_Rig_IKRN.phl[103]";
+connectAttr "root_Ctrl_rotateZ.o" "Max_Rig_IKRN.phl[104]";
 connectAttr ":defaultColorMgtGlobals.cme" "imagePlaneShape1.cme";
 connectAttr ":defaultColorMgtGlobals.cfe" "imagePlaneShape1.cmcf";
 connectAttr ":defaultColorMgtGlobals.cfp" "imagePlaneShape1.cmcp";
@@ -2004,17 +2143,6 @@ connectAttr ":defaultColorMgtGlobals.wsn" "imagePlaneShape1.ws";
 connectAttr ":perspShape.msg" "imagePlaneShape1.ltc";
 connectAttr "Ref_Image.di" "pCube1.do";
 connectAttr "polyCube1.out" "pCubeShape1.i";
-connectAttr "polySphere1.out" "pSphereShape1.i";
-connectAttr "pSphere1.t" "eyeL_Ctrl_aimConstraint1.tg[0].tt";
-connectAttr "pSphere1.rp" "eyeL_Ctrl_aimConstraint1.tg[0].trp";
-connectAttr "pSphere1.rpt" "eyeL_Ctrl_aimConstraint1.tg[0].trt";
-connectAttr "pSphere1.pm" "eyeL_Ctrl_aimConstraint1.tg[0].tpm";
-connectAttr "eyeL_Ctrl_aimConstraint1.w0" "eyeL_Ctrl_aimConstraint1.tg[0].tw";
-connectAttr "pSphere1.t" "eyeR_Ctrl_aimConstraint1.tg[0].tt";
-connectAttr "pSphere1.rp" "eyeR_Ctrl_aimConstraint1.tg[0].trp";
-connectAttr "pSphere1.rpt" "eyeR_Ctrl_aimConstraint1.tg[0].trt";
-connectAttr "pSphere1.pm" "eyeR_Ctrl_aimConstraint1.tg[0].tpm";
-connectAttr "eyeR_Ctrl_aimConstraint1.w0" "eyeR_Ctrl_aimConstraint1.tg[0].tw";
 connectAttr "eyeR_Ctrl_aimConstraint1.w1" "eyeR_Ctrl_aimConstraint1.tg[1].tw";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
@@ -2024,9 +2152,9 @@ connectAttr "defaultRedshiftPostEffects.msg" ":redshiftOptions.postEffects";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
 connectAttr "Max_Rig_IKRNfosterParent1.msg" "Max_Rig_IKRN.fp";
+connectAttr "sharedReferenceNode.sr" "Max_Rig_IKRN.sr";
 connectAttr "layerManager.dli[1]" "Ref_Image.id";
 connectAttr "defaultRedshiftPostEffects.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "pCubeShape1.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "pSphereShape1.iog" ":initialShadingGroup.dsm" -na;
 // End of Walk Cycle IK.ma
